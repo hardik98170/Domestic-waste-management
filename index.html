@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Meta tags -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="EcoSmart – Domestic Waste Management System">
+
+  <title>EcoSmart – Domestic Waste Management System</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Main stylesheet -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Main script -->
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="container nav-inner">
+      <div class="logo">EcoSmart</div>
+
+      <!-- Dark mode toggle -->
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        🌙
+      </button>
+
+      <!-- Navigation links -->
+      <nav class="nav-links">
+        <a href="#home" class="nav-link">Home</a>
+        <a href="#segregation" class="nav-link">Segregation</a>
+        <a href="#schedule" class="nav-link">Schedule</a>
+        <a href="#complaint" class="nav-link">Complaint</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Home / Hero Section -->
+  <section id="home" class="section hero">
+    <div class="container hero-grid">
+      <div class="hero-content reveal">
+        <h1>Manage Waste, Save Earth</h1>
+        <p>
+          EcoSmart helps your community manage domestic waste in a smart, efficient,
+          and eco‑friendly way. Track pickups, learn segregation, and raise complaints easily.
+        </p>
+        <div class="hero-actions">
+          <button class="btn primary" data-scroll-target="#complaint">
+            Register Complaint
+          </button>
+          <button class="btn outline" data-scroll-target="#schedule">
+            Check Pickup Schedule
+          </button>
+        </div>
+      </div>
+
+      <!-- Simple illustration using shapes -->
+      <div class="hero-illustration reveal">
+        <div class="city">
+          <div class="building building-1"></div>
+          <div class="building building-2"></div>
+          <div class="building building-3"></div>
+          <div class="tree tree-1"></div>
+          <div class="tree tree-2"></div>
+          <div class="bin bin-recycle">
+            <span class="bin-icon">♻️</span>
+          </div>
+        </div>
+        <p class="hero-note">Smart, clean neighborhoods with responsible waste management.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Waste Segregation Section -->
+  <section id="segregation" class="section">
+    <div class="container reveal">
+      <h2 class="section-title">Waste Segregation</h2>
+      <p class="section-subtitle">
+        Segregate your domestic waste correctly to support recycling and safe disposal.
+      </p>
+
+      <div class="card-grid">
+        <!-- Wet Waste Card -->
+        <article class="seg-card seg-card-wet">
+          <div class="seg-icon">🌱</div>
+          <h3>Wet Waste</h3>
+          <p class="seg-text">
+            Includes food scraps, vegetable and fruit peels, tea bags, and other biodegradable waste.
+          </p>
+          <ul class="seg-list">
+            <li>Food leftovers</li>
+            <li>Vegetable peels</li>
+            <li>Fruit scraps</li>
+          </ul>
+        </article>
+
+        <!-- Dry Waste Card -->
+        <article class="seg-card seg-card-dry">
+          <div class="seg-icon">📦</div>
+          <h3>Dry Waste</h3>
+          <p class="seg-text">
+            Includes recyclable items such as paper, plastic, glass, metal, and packaging materials.
+          </p>
+          <ul class="seg-list">
+            <li>Paper & cardboard</li>
+            <li>Plastic bottles</li>
+            <li>Metal cans</li>
+          </ul>
+        </article>
+
+        <!-- Hazardous Waste Card -->
+        <article class="seg-card seg-card-hazard">
+          <div class="seg-icon">⚠️</div>
+          <h3>Hazardous Waste</h3>
+          <p class="seg-text">
+            Includes batteries, chemicals, paints, medical waste, and other harmful materials.
+          </p>
+          <ul class="seg-list">
+            <li>Batteries</li>
+            <li>Chemical cleaners</li>
+            <li>Expired medicines</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pickup Schedule Section -->
+  <section id="schedule" class="section schedule-section">
+    <div class="container reveal">
+      <h2 class="section-title">Pickup Schedule</h2>
+      <p class="section-subtitle">
+        Check the next pickup schedule for your area.
+      </p>
+
+      <form class="schedule-form" id="scheduleForm">
+        <input
+          type="text"
+          id="areaInput"
+          class="input"
+          placeholder="Enter your area name"
+          required
+        >
+        <button type="submit" class="btn primary">
+          Check Schedule
+        </button>
+      </form>
+
+      <div class="schedule-result" id="scheduleResult">
+        <!-- Result text will be inserted by JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Complaint Form Section -->
+  <section id="complaint" class="section complaint-section">
+    <div class="container reveal">
+      <h2 class="section-title">Register Complaint</h2>
+      <p class="section-subtitle">
+        Facing issues with waste collection or dumping? Raise a complaint with EcoSmart.
+      </p>
+
+      <form class="complaint-form" id="complaintForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              class="input"
+              placeholder="Enter your name"
+              required
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="area">Area</label>
+            <input
+              type="text"
+              id="area"
+              name="area"
+              class="input"
+              placeholder="Enter your area"
+              required
+            >
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="wasteType">Waste Type</label>
+            <select id="wasteType" name="wasteType" class="input" required>
+              <option value="">Select type</option>
+              <option value="wet">Wet Waste</option>
+              <option value="dry">Dry Waste</option>
+              <option value="hazardous">Hazardous Waste</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="image">Upload Image</label>
+            <input
+              type="file"
+              id="image"
+              name="image"
+              class="input file-input"
+              accept="image/*"
+            >
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea
+            id="description"
+            name="description"
+            class="input textarea"
+            rows="4"
+            placeholder="Describe the issue in your area"
+            required
+          ></textarea>
+        </div>
+
+        <button type="submit" class="btn primary">
+          Submit Complaint
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Dashboard Section -->
+  <section id="dashboard" class="section dashboard-section">
+    <div class="container reveal">
+      <h2 class="section-title">EcoSmart Dashboard</h2>
+      <p class="section-subtitle">
+        Live overview of complaints, pickups, and waste collection.
+      </p>
+
+      <div class="dashboard-grid">
+        <div class="dash-card">
+          <h3>Total Complaints</h3>
+          <p class="dash-value">
+            <span class="counter" data-target="random-complaints">0</span>
+          </p>
+        </div>
+
+        <div class="dash-card">
+          <h3>Total Pickups Today</h3>
+          <p class="dash-value">
+            <span class="counter" data-target="22">0</span>
+          </p>
+        </div>
+
+        <div class="dash-card">
+          <h3>Waste Collected (Kg)</h3>
+          <p class="dash-value">
+            <span class="counter" data-target="340">0</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact / Footer Section -->
+  <section id="contact" class="section contact-section">
+    <div class="container reveal contact-grid">
+      <div class="contact-block">
+        <h2 class="section-title">Contact Us</h2>
+        <p class="section-subtitle">
+          Reach out for support, partnership, or to learn more about EcoSmart.
+        </p>
+
+        <ul class="contact-list">
+          <li>Email: support@ecosmart.com</li>
+          <li>Phone: +91-98765-43210</li>
+          <li>Address: EcoSmart HQ, Green City, Earth</li>
+        </ul>
+      </div>
+
+      <div class="contact-block">
+        <h3>About EcoSmart</h3>
+        <p>
+          EcoSmart is a domestic waste management system designed to make
+          segregation, collection, and complaint handling efficient and transparent
+          for citizens and municipalities.
+        </p>
+
+        <div class="social-icons">
+          <a href="#" aria-label="EcoSmart on Facebook">f</a>
+          <a href="#" aria-label="EcoSmart on Twitter">t</a>
+          <a href="#" aria-label="EcoSmart on Instagram">i</a>
+          <a href="#" aria-label="EcoSmart on LinkedIn">in</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> EcoSmart – Domestic Waste Management System. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
